@@ -1,14 +1,27 @@
-# Start from the alpine image that is smaller but no fancy tools
-FROM alpine:3.19
+# We need ruby 3.1.0. I found this from Docker Hub
+FROM ruby:3.1.0
 
-# Use /usr/src/app as our workdir. The following instructions will be executed in this location.
+EXPOSE 3000
+
 WORKDIR /usr/src/app
 
-# Copy the hello.sh file from this directory to /usr/src/app/ creating /usr/src/app/hello.sh
-COPY hello.sh .
+# Install the correct bundler version
+RUN gem install bundler:2.3.3
 
-# Alternatively, if we skipped chmod earlier, we can add execution permissions during the build.
-# RUN chmod +x hello.sh
+# Copy the files required for dependencies to be installed
+COPY Gemfile* ./
 
-# When running docker run the command will be ./hello.sh
-CMD ./hello.sh
+# Install all dependencies
+RUN bundle install
+
+COPY . .
+
+# We pick the production mode since we have no intention of developing the software inside the container.
+# Run database migrations by following instructions from README
+RUN rails db:migrate RAILS_ENV=production
+
+# Precompile assets by following instructions from README
+RUN rake assets:precompile
+
+# And finally the command to run the application
+CMD ["rails", "s", "-e", "production"]

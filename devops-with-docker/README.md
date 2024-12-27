@@ -43,5 +43,29 @@
 
 ![img_18.png](img_18.png)
 
-![img_19.png](img_19.png)
+#### Ubuntu
+
+![img_21.png](img_21.png)
+
+#### Po bledach w terminalu zdecydowalem sie przerzucic na git basha:
+
+![img_22.png](img_22.png)
+
+![img_23.png](img_23.png)
+
+![img_24.png](img_24.png)
+
+![img_25.png](img_25.png)
+
+![img_26.png](img_26.png)
+
+![img_27.png](img_27.png)
+
+![img_28.png](img_28.png)
+
+![img_29.png](img_29.png)
+
+![img_30.png](img_30.png)
+
+![img_31.png](img_31.png)
 
