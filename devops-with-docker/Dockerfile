@@ -1,27 +1,9 @@
-# We need ruby 3.1.0. I found this from Docker Hub
-FROM ruby:3.1.0
+FROM ubuntu:22.04
 
-EXPOSE 3000
+WORKDIR /mydir
 
-WORKDIR /usr/src/app
+RUN apt-get update && apt-get install -y curl python3
+RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+RUN chmod a+x /usr/local/bin/yt-dlp
 
-# Install the correct bundler version
-RUN gem install bundler:2.3.3
-
-# Copy the files required for dependencies to be installed
-COPY Gemfile* ./
-
-# Install all dependencies
-RUN bundle install
-
-COPY . .
-
-# We pick the production mode since we have no intention of developing the software inside the container.
-# Run database migrations by following instructions from README
-RUN rails db:migrate RAILS_ENV=production
-
-# Precompile assets by following instructions from README
-RUN rake assets:precompile
-
-# And finally the command to run the application
-CMD ["rails", "s", "-e", "production"]
+ENTRYPOINT ["/usr/local/bin/yt-dlp"]
