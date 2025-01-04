@@ -105,3 +105,34 @@ Dodanie helo i world to poprzedniego pliku:
 
 ![img_44.png](img_44.png)
 
+![img_45.png](img_45.png)
+
+![img_46.png](img_46.png)
+
+![img_47.png](img_47.png)
+
+![img_48.png](img_48.png)
+
+![img_49.png](img_49.png)
+
+![img_50.png](img_50.png)
+
+![img_51.png](img_51.png)
+
+![img_54.png](img_54.png)
+
+### dodanie adminera 
+
+![img_53.png](img_53.png)
+
+![img_55.png](img_55.png)
+
+### zmiany dockerfile i docker compose
+
+![img_56.png](img_56.png)
+
+![img_57.png](img_57.png)
+
+![img_58.png](img_58.png)
+
+

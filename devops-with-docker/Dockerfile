@@ -1,9 +1,7 @@
-FROM ubuntu:22.04
+FROM node:16
 
-WORKDIR /mydir
+WORKDIR /usr/src/app
 
-RUN apt-get update && apt-get install -y curl python3
-RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
-RUN chmod a+x /usr/local/bin/yt-dlp
+COPY package* ./
 
-ENTRYPOINT ["/usr/local/bin/yt-dlp"]
+RUN npm install
